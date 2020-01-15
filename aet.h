@@ -3,9 +3,13 @@
 
 #include <cstddef>
 
+#define MODEL0 0    // direct access, ignoring READ / WRITE, uniform data size
+#define MODEL1 1    // access concerning READ / WRITE, uniform data size
+#define MODEL2 2    // access concerning READ / WRITE / UPDATE / DELETE, non-uniform data size
+
 typedef struct Options {
     size_t block_size;
-    
+    int model;
 } Options;
 
 /**

@@ -2,7 +2,7 @@
 # Copyright (C) 2020-2021 Cheng Pan <panchengpku at gmail dot com>
 
 OBJ=aet.o rth_rec.o
-BINS=hiredis-example hiredis-test
+BINS=aet-example aet-test
 LIBNAME=libaet
 
 AET_MAJOR=0
@@ -55,8 +55,8 @@ dynamic: $(DYLIBNAME)
 static: $(STLIBNAME)
 
 # Binaries:
-aet-example: aet-example.c adapters/libev.h $(STLIBNAME)
-	$(CC) -o $@ $(REAL_CFLAGS) $(REAL_LDFLAGS) -lev example-libev.c $(STLIBNAME)
+aet-example: aet-example.c $(STLIBNAME)
+	$(CC) -o $@ $(REAL_CFLAGS) $(REAL_LDFLAGS) aet-example.cc $(STLIBNAME)
 
 
 aet-%: %.o $(STLIBNAME)
